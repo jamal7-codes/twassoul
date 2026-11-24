@@ -6,14 +6,77 @@
     <title>Tawassoul</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@3.3.2/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="./output.css">
+
 </head>
-<body>
+<body class="bg-amber-200">
     <header>
         
-        <div class="flex">
-           <img src="" alt=""> 
+        <div class="flex item-center gap-3">
+           <img src="" alt="Tawassoul logo"> 
            <h1>Tawassoul</h1>
         </div>
     </header>
+<main class="felx flex-col">
+
+    <section>
+        <p>Total Participants: <span id="total-count" >0</span></span></p>
+        <p>Selected Participants: <span id="selected-count">0</span></p>
+    </section>
+
+<section class="flex flex-col-1">
+
+    <form id="Participants-form" action="/submit-endpoint" method="post">
+
+    <label for="name">Full Name</label>
+    <input type="text" id="name" name="user_name" required>
+
+    <label for="select">Formation</label>
+    <select name="formation"  id="formation">
+        <option value="">chose formation</option>
+        <option value="Office">Office</option>
+        <option value="Wep">Wep</option>
+        <option value="Languages">Languages</option>
+
+    </select>
+
+    <label for="email">Email</label>
+    <input type="email" id="email" name="user_email" required placeholder="enter your email">
+
+    <p id="error-messages"></p>
+
+
+    <button type="submit">Add participant</button>
+</form>
+</section>
+
+<section>
+
+<!-- search input -->
+<input type="search" id="search" placeholder="search for participant">
+
+<!-- filter buttons  -->
+<div id="filter">
+<button type="button" data-filter="All">All</button>
+<button type="button" data-filter="Office">Office</button>
+<button type="button" data-filter="Wep">Wep</button>
+<button type="button" data-filter="Languages">Languages</button>
+</div>
+</section>
+
+
+<section>
+<ul id="list"></ul>
+
+<button type="button" id="delete-select">Delete Selection</button>
+
+
+</section>
+
+
+  
+
+<script src="script.js"></script>
+</main>
 </body>
 </html>
